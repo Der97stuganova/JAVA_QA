@@ -22,13 +22,13 @@ import org.openqa.selenium.Keys;
 import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-public class Testdz10Test {
+public class TestTwo {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
   @Before
   public void setUp() {
-    System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
+    System.setProperty("webdriver.chrome.driver", "D:\\Downloads\\tools\\chromedriver_win32\\chromedriver");
     driver = new ChromeDriver();
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
@@ -38,32 +38,19 @@ public class Testdz10Test {
     driver.quit();
   }
   @Test
-  public void testdz10() {
+  public void TestTwo() {
     driver.get("https://author.today/");
-    driver.manage().window().setSize(new Dimension(746, 662));
-    driver.findElement(By.cssSelector(".icon-bar:nth-child(3)")).click();
-    driver.findElement(By.cssSelector(".avatar")).click();
-    driver.findElement(By.linkText("Выйти")).click();
+    driver.manage().window().setSize(new Dimension(1296, 696));
     driver.findElement(By.linkText("Войти")).click();
-    {
-      WebElement element = driver.findElement(By.linkText("Войти"));
-      Actions builder = new Actions(driver);
-      builder.moveToElement(element).perform();
-    }
-    {
-      WebElement element = driver.findElement(By.tagName("body"));
-      Actions builder = new Actions(driver);
-      builder.moveToElement(element, 0, 0).perform();
-    }
     driver.findElement(By.id("Login")).click();
     driver.findElement(By.id("Login")).sendKeys("aderstuganova@gmail.com");
-    driver.findElement(By.name("Password")).click();
+    driver.findElement(By.cssSelector("div > form:nth-child(2)")).click();
     driver.findElement(By.name("Password")).sendKeys("19972002");
-    {
-      WebElement element = driver.findElement(By.cssSelector(".btn-primary"));
-      Actions builder = new Actions(driver);
-      builder.moveToElement(element).perform();
-    }
     driver.findElement(By.cssSelector(".btn-primary")).click();
+    driver.findElement(By.cssSelector(".icon-bell-o")).click();
+    driver.findElement(By.cssSelector(".avatar")).click();
+    driver.findElement(By.cssSelector(".avatar")).click();
+    driver.findElement(By.cssSelector(".avatar")).click();
+    driver.findElement(By.linkText("Выйти")).click();
   }
 }
